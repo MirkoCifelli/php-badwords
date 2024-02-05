@@ -1,3 +1,9 @@
+<?php
+$paragraph = $_GET['paragraph'];
+$badWord = $_GET['badWord'];
+$censor = str_replace($badWord,'***',$paragraph);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,10 +28,10 @@
                 Paragrafo Originale
             </h2>
             <p> 
-                <?php echo $_GET['paragraph']  ?>
+                <?php echo $paragraph?>
             </p>
             <div>
-                <?php echo ucfirst('Lunghezza: ')?> <?php echo strlen($_GET['paragraph'])?>
+                <?php echo ucfirst('Lunghezza: ')?> <?php echo strlen($paragraph)?>
             </div>
         </div>
         <div class="container text-center">
@@ -33,10 +39,10 @@
                 Paragrafo Censurato
             </h2>
             <p>
-            <?php echo str_replace($_GET['badWord'],'***',$_GET['paragraph'])?>
+            <?php echo $censor?>
             </p>
             <div>
-            <?php echo ucfirst('Lunghezza dopo censura: ')?> <?php echo strlen($_GET['paragraph'])?>
+            <?php echo ucfirst('Lunghezza dopo censura: ')?> <?php echo strlen($censor)?>
             </div>
         </div>
     </main>
